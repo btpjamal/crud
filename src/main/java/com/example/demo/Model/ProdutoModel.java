@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.boot.internal.Target;
 
 @Entity
 @Table(name = "produto")
@@ -28,5 +29,11 @@ public class ProdutoModel {
 
     @Column(name = "quantidade")
     private Integer quantidade;
+
+
+    // Relacionamento Many-to-One com Categoria
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private CategoriasModel categoria;
 
 }
